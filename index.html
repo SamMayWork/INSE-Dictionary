@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/styles.css">
   <title>INSE API Dictionary</title>
@@ -11,12 +11,14 @@
     <h1>INSE API Dictionary</h1>
     <div class="postsandcomments">
       <div class="route">
+          <p class=heading>Getting a post</p>
           <p class="get">GET</p>
           <p class="path">/forum?thread=[param]</p>
           <p class="desc">Gets the post and all of the comments related to the given thread ID in JSON format</p>
           <p class=param>1 - The ID for the thread to get</p>
       </div>
       <div class="route">
+          <p class=heading>Getting a Board</p>
           <p class="get">GET</p>
           <p class="path">/forum?board=[param]&order=[param]</p>
           <p class="desc">Gets a collection of posts for a given board, ordered using the specified method</p>
@@ -24,17 +26,92 @@
         <p class=param>2 - The order in which the posts should be delivered</p>
       </div>
       <div class="route">
+          <p class=heading>Create Post</p>
           <p class="post">POST</p>
           <p class="path">/forum?board=[param]</p>
           <p class="desc">Creates a post on the given board using the information provided in the body of the POST</p>
           <p class=param>1 - The ID of the board in which to create the post</p>
       </div>
       <div class="route">
+          <p class=heading>Create Comment</p>
           <p class="post">POST</p>
           <p class="path">/forum?thread=[param]&comment=[param]</p>
           <p class="desc">Creates a comment in the given thread, or creates a reply to another comment if the comment parameter is fufilled. Comment information is stored in the body of the POST.</p>
           <p class=param>1 - The ID of the thread to make the comment in</p>
         <p class=param>2 (Optional) - The ID of the comment to make a reply to</p>
+      </div>
+      <div class="route">
+          <p class=heading>Edit Comment</p>
+          <p class="post">POST</p>
+          <p class="path">/forum?thread=[param]&comment=[param]</p>
+          <p class="desc">Edits the content of a comment, updating it with information inside of the body of the POST</p>
+          <p class=param>1 - The ID of the thread the comment is in</p>
+        <p class=param>2 - The comment ID to edit</p>
+      </div>
+      <div class="route">
+          <p class=heading>Edit Post</p>
+          <p class="post">POST</p>
+          <p class="path">/forum?board=[param]&thread=[param]</p>
+          <p class="desc">Edits the content of a given thread using the information provided by the POST.</p>
+          <p class=param>1 - The ID of the board the thread is in</p>
+        <p class=param>2 - The ID of the thread to edit</p>
+      </div>
+      <div class="route">
+          <p class=heading>Like Comment</p>
+          <p class="post">POST</p>
+          <p class="path">/forum?thread=[param]&comment=[param]&status=like</p>
+          <p class="desc">Likes a given comment from a given thread</p>
+          <p class=param>1 - The ID of the thread the comment is in</p>
+        <p class=param>2 - The ID of the comment to like</p>
+      </div>
+      <div class="route">
+          <p class=heading>Dislike Comment</p>
+          <p class="post">POST</p>
+          <p class="path">/forum?thread=[param]&comment=[param]&status=dislike</p>
+          <p class="desc">Dislikes a given comment from a given thread</p>
+          <p class=param>1 - The ID of the thread the comment is in</p>
+        <p class=param>2 - The ID of the comment to dislike</p>
+      </div>
+      <div class="route">
+          <p class=heading>Like Post</p>
+          <p class="post">POST</p>
+          <p class="path">/forum?board=[param]&thread=[param]&status=like</p>
+          <p class="desc">Likes a given post from a given board</p>
+          <p class=param>1 - The ID of the board the thread is in</p>
+        <p class=param>2 - The ID of the thread to like</p>
+      </div>
+      <div class="route">
+          <p class=heading>Dislike Post</p>
+          <p class="post">POST</p>
+          <p class="path">/forum?board=[param]&thread=[param]&status=dislike</p>
+          <p class="desc">Dislikes a given post from a given board</p>
+          <p class=param>1 - The ID of the board the thread is in</p>
+        <p class=param>2 - The ID of the thread to dislike</p>
+      </div>
+      <div class="route">
+          <p class=heading>Mark Answer</p>
+          <p class="post">POST</p>
+          <p class="path">/forum?thread=[param]&comment=[param]&correct=true</p>
+          <p class="desc">Marks a given comment as the correct answer for a given thread</p>
+          <p class=param>1 - The ID of the thread to mark the comment in</p>
+        <p class=param>2 - The ID of the comment of which to mark as the correct answer</p>
+      </div>
+    </div>
+    <div class="reporting">
+      <div class="route">
+          <p class=heading>Reporting a post</p>
+          <p class="post">POST</p>
+          <p class="path">/forum/report?thread=[param]</p>
+          <p class="desc">Reports a given thread</p>
+          <p class=param>1 - The ID of the thread to report</p>
+      </div>
+      <div class="route">
+          <p class="heading">Report Comment</p>
+          <p class="post">POST</p>
+          <p class="path">/forum/report?thread=[param]&comment=[param]</p>
+          <p class="desc">Reports a given comment</p>
+          <p class=param>1 - The ID of thread the comment is in</p>
+        <p class=param>2 - The ID of the comment to report</p>
       </div>
     </div>
   </div>
