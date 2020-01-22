@@ -1,0 +1,50 @@
+body, html {
+  padding : 0;
+  margin-right : 10vw;
+  margin-left : 10vw;
+
+  background-color : #c7c7c7;
+}
+
+.container {
+  background-color : #ffffff;
+  height : 100%;
+
+  padding : 2em;
+}
+
+.postsandcomments {
+  background-color : #f3ffbd;
+}
+
+
+@mixin method {
+  display : inline;
+  border-radius : 10px;
+  padding : 0.5em;
+}
+
+.route {
+  padding : 1em;
+  border : 1px solid black;
+
+  .get {
+    @include method;
+    color : #274b1c;
+    background-color : #5aff28;
+  }
+
+  .post {
+    @include method;
+    color : #ffcbcb;
+    background-color : #ff3838;
+  }
+  
+  .path {
+    display : inline;
+    color : #4e4bff;
+    background-color : #d1ecff;
+    border-radius : 10px;
+    padding : 0.5em;  
+  }
+}
